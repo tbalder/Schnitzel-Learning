@@ -1,22 +1,25 @@
-# Schnitzel Learning Delen
+# Schnitzel Learning delen
 
-## Simpel delen
+## Een echte link maken (nodig voor installeren)
 
-Stuur de map `leerapp` of het zipbestand `Schnitzel Learning webapp.zip` naar je klasgenoten.
+Een app installeren en offline gebruiken werkt alleen vanaf een https-link. Gratis opties:
 
-Zij openen daarna:
+**GitHub Pages** (de repo staat er al):
+1. Ga naar de repo op GitHub → *Settings* → *Pages*
+2. Kies bij *Branch* `main` en map `/ (root)`, en druk op *Save*
+3. Na een minuut staat de app op `https://tbalder.github.io/Schnitzel-Learning/`
 
-```text
-index.html
-```
+**Netlify Drop:** sleep de hele map naar https://app.netlify.com/drop en je krijgt meteen een link.
+
+Stuur die link naar je klasgenoten. Zij installeren hem via *Zet op beginscherm* (iPhone) of *App installeren* (Android/computer), zie `README.md`.
 
 ## Goed om te weten
 
 - De app werkt zonder account.
-- Woordjes worden opgeslagen in de browser van degene die de app gebruikt.
-- Iedereen kan dus eigen hoofdstukken en woorden toevoegen.
+- Woordjes worden opgeslagen in de browser van degene die de app gebruikt, dus iedereen heeft zijn eigen woordjes.
+- Op een nieuw apparaat of na het wissen van browsergegevens is alles weg. Gebruik daarom af en toe *Exporteer backup* onder *Nieuw*.
 - Deel alleen woordenlijsten uit schoolboeken als dat van school of de uitgever mag.
 
-## Mooier delen
+## Zonder link delen
 
-Als je een echte link wilt, kun je de map `leerapp` uploaden naar bijvoorbeeld GitHub Pages, Netlify, Vercel of de schoolsite.
+Je kunt ook de map als zipbestand sturen. Zij openen dan `index.html`. De app werkt dan wel, maar installeren en offline gebruiken niet.

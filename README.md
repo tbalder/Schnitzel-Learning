@@ -1,6 +1,16 @@
 # Schnitzel Learning
 
-Open `index.html` in je browser.
+Woordjes leren met herhaling en vrij oefenen. Werkt als app: installeerbaar op telefoon, tablet en computer, en ook zonder internet.
+
+## Als app installeren
+
+De app moet eerst op een echte link staan (zie `DELEN.md`, bijvoorbeeld GitHub Pages). Open die link daarna:
+
+- **iPhone/iPad (Safari):** Deel-knop → *Zet op beginscherm*
+- **Android (Chrome):** menu (⋮) → *App installeren* of *Toevoegen aan startscherm*
+- **Computer (Chrome/Edge):** installeer-icoon rechts in de adresbalk
+
+Lokaal proberen kan ook: dubbelklik op `index.html`. Installeren en offline werken gaan dan niet, want dat vereist een link (https).
 
 ## Wat zit erin
 
@@ -17,29 +27,9 @@ Open `index.html` in je browser.
 - Elk woordpaar wordt opgeslagen als: woord in de taal -> Nederlandse betekenis.
 - Bij oefenen en herhalen kun je kiezen tussen Taal -> NL en NL -> taal.
 
-## offline app
-Schnitzel Learning installeren
-
-Open eerst de link van de app. Installeren kan alleen vanaf die link, niet vanaf een los bestand.
-
-iPhone en iPad (Safari)
-Tik op de deel-knop (vierkantje met pijl) → Zet op beginscherm → Voeg toe. Het moet in Safari, andere browsers kunnen dit op iOS niet.
-
-Android (Chrome)
-Tik op het menu (⋮) → App installeren of Toevoegen aan startscherm.
-
-Windows (Chrome of Edge)
-Klik op het installeer-icoontje rechts in de adresbalk. Of kies in Edge menu (⋯) → Apps → Deze site als app installeren, of in Chrome menu (⋮) → Casten, opslaan en delen → Installeren als app. De app staat daarna in je startmenu.
-
-macOS
-Safari (macOS Sonoma 14 of nieuwer): Archief → Voeg toe aan Dock. Chrome of Edge: klik op het installeer-icoontje in de adresbalk. Op een oudere macOS dan Sonoma werkt installeren alleen met Chrome of Edge.
-
-Linux (Chrome, Chromium, Edge of Brave)
-Klik op het installeer-icoontje in de adresbalk of kies in het menu Installeren als app. Firefox kan op Linux geen app installeren, maar de site werkt daar wel in een tabblad.
-
 ## Woordjes toevoegen
 
-Ga naar `Import` en plak twee kolommen:
+Ga naar `Nieuw` en plak twee kolommen:
 
 ```text
 Woord in de taal	Nederlandse betekenis
@@ -47,4 +37,15 @@ la pomme	de appel
 le sucre	de suiker
 ```
 
-Complete woordenlijsten uit schoolboeken staan er niet vooraf in, omdat die uit jouw eigen boeken of eigen exports moeten komen. Foto's of tekst uit je boek kan ik wel voor je omzetten naar importklare lijsten.
+Complete woordenlijsten uit schoolboeken staan er niet vooraf in, omdat die uit jouw eigen boeken of eigen exports moeten komen.
+
+## Bestanden
+
+- `index.html`, `app.js`, `styles.css`: de app zelf
+- `manifest.webmanifest`: naam, kleuren en iconen voor installatie
+- `sw.js`: service worker, bewaart de app voor offline gebruik
+- `icons/`, `icon.svg`: app-iconen
+
+## Nieuwe versie uitrollen
+
+Pas je iets aan, verhoog dan `CACHE_VERSION` bovenin `sw.js` (bijv. `schnitzel-v2`). Anders blijven bestaande gebruikers de oude versie uit hun cache zien.
