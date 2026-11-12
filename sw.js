@@ -1,6 +1,6 @@
 // Service worker: zorgt dat Schnitzel Learning ook zonder internet opent.
 // Verhoog CACHE_VERSION bij elke wijziging aan de app, dan krijgt iedereen de nieuwe versie.
-const CACHE_VERSION = "schnitzel-v1";
+const CACHE_VERSION = "schnitzel-v2";
 
 const APP_SHELL = [
   "./",
@@ -14,6 +14,9 @@ const APP_SHELL = [
   "./icons/icon-maskable-512.png",
   "./icons/apple-touch-icon.png"
 ];
+
+// De lettertypes komen van Google Fonts. Die bewaren we ook, zodat de app er offline hetzelfde uitziet.
+const FONT_HOSTS = ["fonts.googleapis.com", "fonts.gstatic.com"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -32,20 +35,24 @@ self.addEventListener("activate", (event) => {
 // Eerst de cache (snel en offline), op de achtergrond verversen voor de volgende keer.
 self.addEventListener("fetch", (event) => {
   const request = event.request;
-  if (request.method !== "GET" || new URL(request.url).origin !== self.location.origin) return;
+  if (request.method !== "GET") return;
+  const url = new URL(request.url);
+  const sameOrigin = url.origin === self.location.origin;
+  if (!sameOrigin && !FONT_HOSTS.includes(url.hostname)) return;
 
   event.respondWith(
-    caches.match(request, { ignoreSearch: true }).then((cached) => {
+    caches.match(request, { ignoreSearch: sameOrigin }).then((cached) => {
       const refresh = fetch(request)
         .then((response) => {
-          if (response && response.ok) {
+          if (response && (response.ok || response.type === "opaque")) {
             const copy = response.clone();
             caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
           }
           return response;
         })
         .catch(() => cached);
-      return cached || refresh.then((response) => response || caches.match("./index.html"));
+      if (cached) return cached;
+      return refresh.then((response) => response || (sameOrigin ? caches.match("./index.html") : Response.error()));
     })
   );
 });

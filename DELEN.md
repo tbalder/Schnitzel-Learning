@@ -17,7 +17,7 @@ Stuur die link naar je klasgenoten. Zij installeren hem via *Zet op beginscherm*
 
 - De app werkt zonder account.
 - Woordjes worden opgeslagen in de browser van degene die de app gebruikt, dus iedereen heeft zijn eigen woordjes.
-- Op een nieuw apparaat of na het wissen van browsergegevens is alles weg. Gebruik daarom af en toe *Exporteer backup* onder *Nieuw*.
+- Op een nieuw apparaat of na het wissen van browsergegevens is alles weg. Gebruik daarom af en toe *Back-up opslaan* onderaan het beginscherm. Daarmee kun je woordjes ook naar een ander apparaat verhuizen (*Back-up terugzetten*).
 - Deel alleen woordenlijsten uit schoolboeken als dat van school of de uitgever mag.
 
 ## Zonder link delen
